@@ -5,16 +5,12 @@
 # ~~~~
 
 # Single endpoint for serving AngularJS
-GET     /											@controllers.Application.index
-GET     /randomUUID           @controllers.Application.randomUUID
+GET     /							@controllers.Application.index
+GET     /randomUUID                 @controllers.Application.randomUUID
 
-# User management API
-GET     /users                @controllers.Users.findUsers
-POST    /user                 @controllers.Users.createUser
-
-GET 		/:classType						@controllers.ScheduleController.find(classType: String)
-POST		/:classType/:id 			@controllers.ScheduleController.create(id: String, classType: String)
-PUT			/:classType/:id 			@controllers.ScheduleController.update(id: String, classType: String)
+GET 	/:classType				    @controllers.ScheduleController.find(classType: String)
+POST	/:classType/create			@controllers.ScheduleController.create(classType: String)
+PUT		/:classType/:id 			@controllers.ScheduleController.update(id: String, classType: String)
 
 
 # Map static resources from the /public folder to the /assets URL path

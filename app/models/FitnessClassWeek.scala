@@ -10,9 +10,3 @@ import reactivemongo.bson.BSONObjectID
 case class FitnessClassWeek( _id: BSONObjectID,
                              name:String,
                              classSchedule: List[FitnessClassDay])
-
-object FitnessClassWeekJsonFormat {
-  import play.api.libs.json.Json
-
-  implicit val classFormat = Json.format[FitnessClassWeek]
-}
