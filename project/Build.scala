@@ -2,7 +2,7 @@ import sbt._
 
 object ApplicationBuild extends Build {
 
-  val appName         = "modern-web-template"
+  val appName         = "spac-mobile-editor"
   val appVersion      = "0.1-SNAPSHOT"
 
   val appDependencies = Seq(
