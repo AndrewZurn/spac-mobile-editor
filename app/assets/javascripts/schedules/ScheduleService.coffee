@@ -6,13 +6,14 @@ class ScheduleService
   constructor: (@$log, @$http, @$q) ->
     @$log.debug "constructing ScheduleService"
 
-  listSchedule: (classType) ->
+  getSchedule: (classType) ->
     @$log.debug "listSchedule(" + classType + ")"
     deferred = @$q.defer()
 
     @$http.get("/schedule/#{ classType }")
     .success((data, status, headers) =>
-      @$log.info("Successfully listed #{ classType } schedule - status #{ status }")
+      @$log
+        .info("Listed #{ classType } schedule - status #{ status }")
       deferred.resolve(data)
     )
     .error((data, status, heaaders) =>
@@ -27,7 +28,7 @@ class ScheduleService
 
     @$http.post('/schedule/#{classType}/#{id}', schedule)
     .success((data, status, headers) =>
-      @$log.info("Successfully updated #{classType} Schedule - status #{status}")
+      @$log.info("Updated #{classType} Schedule - status #{status}")
       deferred.resolve(data)
     )
     .error((data, status, headers) =>
