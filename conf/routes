@@ -8,9 +8,9 @@
 GET     /							@controllers.Application.index
 GET     /randomUUID                 @controllers.Application.randomUUID
 
-GET 	/:classType				    @controllers.ScheduleController.find(classType: String)
-POST	/:classType/create			@controllers.ScheduleController.create(classType: String)
-PUT		/:classType/:id 			@controllers.ScheduleController.update(id: String, classType: String)
+GET 	/schedule/:classType				    @controllers.ScheduleController.find(classType: String)
+POST	/schedule/:classType/create		    	@controllers.ScheduleController.create(classType: String)
+PUT		/schedule/:classType/:id 		    	@controllers.ScheduleController.update(id: String, classType: String)
 
 
 # Map static resources from the /public folder to the /assets URL path

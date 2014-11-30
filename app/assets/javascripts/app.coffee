@@ -16,10 +16,19 @@ angular.module('myApp.routeConfig', ['ngRoute'])
     .config ($routeProvider) ->
         $routeProvider
             .when('/', {
-                templateUrl: '/assets/partials/view.html'
+                templateUrl: '/assets/partials/home.html'
             })
-            .when('/users/create', {
-                templateUrl: '/assets/partials/create.html'
+            .when('/group', {
+                templateUrl: '/assets/partials/group.html'
+            })
+            .when('/small_group', {
+              templateUrl: '/assets/partials/small_group.html'
+            })
+            .when('/pilates', {
+                  templateUrl: '/assets/partials/pilates.html'
+            })
+            .when('/events', {
+                  templateUrl: '/assets/partials/events.html'
             })
             .otherwise({redirectTo: '/'})
 
