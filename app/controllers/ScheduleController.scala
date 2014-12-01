@@ -2,8 +2,7 @@ package controllers
 
 import javax.inject.Singleton
 
-import models.FitnessClassWeek
-import models.JsonFormats._
+import models._
 import org.slf4j.{Logger, LoggerFactory}
 import play.api.libs.concurrent.Execution.Implicits._
 import play.api.libs.json.Json
@@ -49,7 +48,7 @@ class ScheduleController extends Controller with MongoController {
   def update(id: String, classType: String) = Action.async(parse.json) { request =>
     val collection: JSONCollection = getFitnessDatabase(classType)
 
-    val byId = BSONDocument("_id" -> id)
+    val byId = Json.obj("_id" -> Json.obj("$oid" ->id))
     request.body.validate[FitnessClassWeek].map {
       schedule => collection.update(byId, schedule).map {
         error => logger.debug(s"Successfully inserted $schedule.name with error: $error")
@@ -59,14 +58,14 @@ class ScheduleController extends Controller with MongoController {
   }
 
   def getFitnessDatabase(classType: String): JSONCollection = {
-    if (classType == "GROUP") {
+    if (classType == "group") {
       db.collection[JSONCollection]("group_fitness")
-    } else if (classType == "SMALL_GROUP") {
+    } else if (classType == "small_group") {
       db.collection[JSONCollection]("small_group_fitness")
-    } else if (classType == "PILATES") {
-      db.collection[JSONCollection]("pilaties_fitness")
+    } else if (classType == "pilates") {
+      db.collection[JSONCollection]("pilates_fitness")
     } else {
-      throw new IllegalArgumentException("Illegal Class Type Argument, legal values are GROUP, SMALL_GROUP, or PILATES")
+      throw new IllegalArgumentException("Illegal Class Type Argument, legal values are group, small_group, or pilates")
     }
   }
 

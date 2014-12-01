@@ -1,7 +1,7 @@
 class ScheduleController
 
   constructor: (@$log, @$location, @ScheduleService) ->
-    @$log.debug "contructing ScheduleController"
+    @$log.debug "constructing ScheduleController"
     @schedule = {}
 
   getClassSchedule: (classType) ->
@@ -24,7 +24,7 @@ class ScheduleController
       (data) =>
         @$log.debug "Promise returned #{data} Schedule"
         @schedule = data
-        @$location.path("/")
+        @$location.path("/schedule/#{classType}")
       ,
       (error) =>
         @$log.error "Unable to update Schedule: #{error}"
