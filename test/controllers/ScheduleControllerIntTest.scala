@@ -31,7 +31,7 @@ class ScheduleControllerIntTest extends Specification {
 
     "insert a valid json schedule" in {
       running(FakeApplication()) {
-        val request = FakeRequest.apply(POST, "/schedule/pilates/create")
+        val request = FakeRequest.apply(POST, "/schedule/group/create")
           .withJsonBody(classWeekAsJson)
         val response = route(request)
         response.isDefined mustEqual true
@@ -42,7 +42,7 @@ class ScheduleControllerIntTest extends Specification {
 
     "update a valid json schedule" in {
       running(FakeApplication()) {
-        val updateRequest = FakeRequest.apply(PUT, "/schedule/pilates/50181f15e0f8477d00a5859e")
+        val updateRequest = FakeRequest.apply(PUT, "/schedule/group/50181f15e0f8477d00a5859e")
           .withJsonBody(classWeekAsJson)
         val updateResponse = route(updateRequest)
         updateResponse.isDefined mustEqual true
@@ -50,7 +50,6 @@ class ScheduleControllerIntTest extends Specification {
         updateResult.header.status must equalTo(CREATED)
       }
     }
-
 
   }
 }

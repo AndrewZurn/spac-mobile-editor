@@ -25,6 +25,7 @@ class ScheduleController extends Controller with MongoController {
   def find(classType: String) = Action.async {
     val collection: JSONCollection = getFitnessDatabase(classType)
 
+    logger.info(s"Searching for $classType schedule")
     val futureSchedule: Future[Option[FitnessClassWeek]] = collection
       .find(Json.obj("name" -> classType))
       .one[FitnessClassWeek]
