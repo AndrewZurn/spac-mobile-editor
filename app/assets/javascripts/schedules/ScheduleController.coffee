@@ -10,36 +10,36 @@ class ScheduleController
   getClassSchedules: () ->
     @$log.debug "getClassSchedule(group)"
     @ScheduleService.getSchedule('group')
-    .then(
-      (data) =>
-        @$log.debug "Promise returned #{data.length} getSchedule"
-        @groupSchedule = data
-      ,
-      (error) =>
-        @$log.error "Unable to get Schedule: ${error}"
-    )
+      .then(
+        (data) =>
+          @$log.debug "Promise returned #{data.length} getSchedule"
+          @groupSchedule = data
+        ,
+        (error) =>
+          @$log.error "Unable to get Schedule: ${error}"
+      )
 
     @$log.debug "getClassSchedule(small_group)"
     @ScheduleService.getSchedule('small_group')
-    .then(
-      (data) =>
-        @$log.debug "Promise returned #{data.length} getSchedule"
-        @smallGroupSchedule = data
-    ,
-      (error) =>
-        @$log.error "Unable to get Schedule: ${error}"
-    )
+      .then(
+        (data) =>
+          @$log.debug "Promise returned #{data.length} getSchedule"
+          @smallGroupSchedule = data
+      ,
+        (error) =>
+          @$log.error "Unable to get Schedule: ${error}"
+      )
 
     @$log.debug "getClassSchedule(pilates)"
     @ScheduleService.getSchedule('pilates')
-    .then(
-      (data) =>
-        @$log.debug "Promise returned #{data.length} getSchedule"
-        @pilatesSchedule = data
-    ,
-      (error) =>
-        @$log.error "Unable to get Schedule: ${error}"
-    )
+      .then(
+        (data) =>
+          @$log.debug "Promise returned #{data.length} getSchedule"
+          @pilatesSchedule = data
+      ,
+        (error) =>
+          @$log.error "Unable to get Schedule: ${error}"
+      )
 
   updateClassSchedule: (classType) ->
     @$log.debug "updateClassSchedule(#{classType})"
