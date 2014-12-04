@@ -49,10 +49,10 @@ class ScheduleController extends Controller with MongoController {
   def update(id: String, classType: String) = Action.async(parse.json) { request =>
     val collection: JSONCollection = getFitnessDatabase(classType)
 
-    val byId = Json.obj("_id" -> Json.obj("$oid" ->id))
+    val byId = Json.obj("_id" -> Json.obj("$oid" -> id))
     request.body.validate[FitnessClassWeek].map {
       schedule => collection.update(byId, schedule).map {
-        error => logger.debug(s"Successfully inserted $schedule.name with error: $error")
+        error => logger.debug(s"Successfully updated $schedule.name with error: $error")
           Created
       }
     }.getOrElse(Future.successful(BadRequest("invalid json")))
