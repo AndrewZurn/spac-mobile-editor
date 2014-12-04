@@ -32,7 +32,12 @@ class ScheduleController
         @$log.error "Unable to update Schedule: #{error}"
     )
 
-  insertRow: (day, position) ->
+  addClass: (addDay) ->
+    newClass = { "name": '', "time": '', "instructor": '', "room": '' }
+    for day, dayIndex in @schedule.classSchedule
+      if day.day == addDay
+        @schedule.classSchedule[dayIndex].classes
+         .splice(@schedule.classSchedule[dayIndex].classes.length, 0, newClass)
 
   moveRow: (direction, moveDay, index) ->
     if direction == "up"
