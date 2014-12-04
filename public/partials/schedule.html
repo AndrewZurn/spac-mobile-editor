@@ -1,7 +1,7 @@
-<div class="row" ng-controller="ScheduleController as cntrl"
-<ul>
-    <li ng-repeat="day in cntrl.schedule.classSchedule">
-        <strong>{{day.day}}</strong>
+<div class="row class-schedule" ng-controller="ScheduleController as cntrl"
+<ul class="class-day-ul">
+    <li class="class-day-li" ng-repeat="day in cntrl.schedule.classSchedule">
+        <strong class="strong-day-header">{{day.day}}</strong>
         <table>
             <td></td><td></td>
             <td><strong>Name</strong></td>

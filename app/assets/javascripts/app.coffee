@@ -18,13 +18,13 @@ angular.module('myApp.routeConfig', ['ngRoute'])
       templateUrl: '/assets/partials/home.html'
     })
   .when('/group', {
-      templateUrl: '/assets/partials/group.html',
+      templateUrl: '/assets/partials/schedule.html',
     })
   .when('/small_group', {
-      templateUrl: '/assets/partials/small_group.html',
+      templateUrl: '/assets/partials/schedule.html',
     })
   .when('/pilates', {
-      templateUrl: '/assets/partials/pilates.html',
+      templateUrl: '/assets/partials/schedule.html',
     })
   .when('/events', {
       templateUrl: '/assets/partials/events.html',
