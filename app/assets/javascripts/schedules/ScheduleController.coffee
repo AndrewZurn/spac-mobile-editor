@@ -32,4 +32,29 @@ class ScheduleController
         @$log.error "Unable to update Schedule: #{error}"
     )
 
+  insertRow: (day, position) ->
+
+  moveRow: (direction, moveDay, index) ->
+    if direction == "up"
+      for day, dayIndex in @schedule.classSchedule
+        if day.day == moveDay
+          temp = @schedule.classSchedule[dayIndex].classes[index - 1]
+          @schedule.classSchedule[dayIndex].classes[index - 1] = @schedule.classSchedule[dayIndex].classes[index]
+          @schedule.classSchedule[dayIndex].classes[index] = temp
+          break
+    else if direction == "down"
+      for day, dayIndex in @schedule.classSchedule
+        if day.day == moveDay
+          temp = @schedule.classSchedule[dayIndex].classes[index + 1]
+          @schedule.classSchedule[dayIndex].classes[index + 1] = @schedule.classSchedule[dayIndex].classes[index]
+          @schedule.classSchedule[dayIndex].classes[index] = temp
+          break
+    else alert("Something wrong happened! Please try again or contact the web administrator!")
+
+  removeRow: (day, index) ->
+
+
+
+
+
 controllersModule.controller('ScheduleController', ScheduleController)
