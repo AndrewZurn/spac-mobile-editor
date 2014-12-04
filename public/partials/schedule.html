@@ -16,7 +16,7 @@
                 <td><input type="text" ng-model="class.time" name="Class Time"/></td>
                 <td><input type="text" ng-model="class.instructor" name="Class Instructor"/></td>
                 <td><input type="text" ng-model="class.room" name="Class Room"/></td>
-                <td><input type="button" class="delete-btn" ng-click="cntrl.removeRow(day, $index)" name="remove row" value="Remove"></input></td>
+                <td><input type="button" class="delete-btn" ng-click="cntrl.removeClass(day.day, $index)" name="remove row" value="Remove"></input></td>
             </tr>
         </table>
     </li>

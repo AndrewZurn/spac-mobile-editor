@@ -53,7 +53,11 @@ class ScheduleController
           break
     else alert("Something wrong happened! Please try again or contact the web administrator!")
 
-  removeRow: (day, index) ->
+  removeClass: (removeDay, index) ->
+    for day, dayIndex in @schedule.classSchedule
+      if day.day == removeDay
+        @schedule.classSchedule[dayIndex].classes.splice(index, 1)
+        break
 
 
 
