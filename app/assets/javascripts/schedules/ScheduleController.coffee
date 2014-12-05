@@ -21,7 +21,7 @@ class ScheduleController
   updateClassSchedule: () ->
     classType = @$location.path().substring(1)
     @$log.debug "updateClassSchedule(#{classType})"
-    @ScheduleService.updateSchedule(classType, @schedule._id.$oid, @schedule)
+    @ScheduleService.updateSchedule(classType, @schedule)
     .then(
       (data) =>
         @$log.debug "Promise returned #{data} Schedule"
@@ -56,16 +56,14 @@ class ScheduleController
             @schedule.classSchedule[dayIndex].classes[index + 1] = @schedule.classSchedule[dayIndex].classes[index]
             @schedule.classSchedule[dayIndex].classes[index] = temp
           break
-    else alert("Something wrong happened! Please try again or contact the web administrator!")
+    else
+      alert("Something wrong happened! Please try again or contact the web administrator!")
+      @$log.error("Wrong direction provided, could not move classes")
 
   removeClass: (removeDay, index) ->
     for day, dayIndex in @schedule.classSchedule
       if day.day == removeDay
         @schedule.classSchedule[dayIndex].classes.splice(index, 1)
         break
-
-
-
-
 
 controllersModule.controller('ScheduleController', ScheduleController)
