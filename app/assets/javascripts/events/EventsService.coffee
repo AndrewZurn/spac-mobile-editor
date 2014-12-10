@@ -27,7 +27,7 @@ class EventsService
     id = events._id.$oid
     deferred = @$q.defer()
 
-    @$http.put("/events/${id}", events)
+    @$http.put("/events/#{id}", events)
       .success((data, status, headers) =>
         @$log.info("Successfully updated events - status #{status}")
         deferred.resolve(data)

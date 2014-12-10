@@ -1,6 +1,6 @@
 class EventsController
 
-  constructor: (@$log, @$location, @EventsService) ->
+  constructor: (@$log, @$location, @$route, @EventsService) ->
     @$log.debug "constructing EventsController"
     @events = []
     @getEvents()
@@ -24,7 +24,7 @@ class EventsController
         (data) =>
           @$log.debug "Promise returned #{data} Events"
           @events = data
-          @$location.path("/events")
+          @$route.reload()
         ,
         (error) =>
           @$log.error "Unable to updateEvents: #{error}"

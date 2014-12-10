@@ -28,7 +28,7 @@ class ScheduleService
     id = schedule._id.$oid
     deferred = @$q.defer()
 
-    @$http.put("/schedule/#{classType}/#{id}", schedule)
+    @$http.put("/schedule/#{classType}/#{id}", angular.toJson(schedule, false))
     .success((data, status, headers) =>
       @$log.info("Updated #{classType} Schedule - status #{status}")
       deferred.resolve(data)
