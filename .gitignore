@@ -21,3 +21,6 @@ server.pid
 *.iml
 *.eml
 activator-*.sbt
+
+# Ignore play application.conf to hide secrets :)
+conf/application.conf
