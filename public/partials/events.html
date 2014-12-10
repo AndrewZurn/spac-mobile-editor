@@ -8,14 +8,14 @@
     <td><strong>Contact</strong></td>
     <td><input type="button" class="add-btn" ng-click="ec.addEvent()" name="add row" value="Add Event"></input></td>
     <tr ng-repeat="event in ec.events.eventSchedule">
-        <td><input type="button" class="direction-btn" ng-click="ec.moveEvent('up', $index)" name="move up" value="&#9650;"></td>
-        <td><input type="button" class="direction-btn" ng-click="ec.moveEvent('down', $index)" name="move down" value="&#9660;"></td>
+        <td><input type="button" class="direction-btn" ng-click="ec.moveEvent('up', $index)" name="move up" value="&#9650;"/></td>
+        <td><input type="button" class="direction-btn" ng-click="ec.moveEvent('down', $index)" name="move down" value="&#9660;"/></td>
         <td><input type="text" ng-model="event.name" name="Event Name"/></td>
         <td><input type="text" ng-model="event.date" name="Event Date"/></td>
         <td><input type="text" ng-model="event.location" name="Event Location"/></td>
         <td><input type="text" ng-model="event.description" name="Event Description"/></td>
         <td><input type="text" ng-model="event.contact" name="Event Contact"/></td>
-        <td><input type="button" class="delete-btn" ng-click="ec.removeEvent($index)" name="remove row" value="Remove"></input></td>
+        <td><input type="button" class="delete-btn" ng-click="ec.removeEvent($index)" name="remove row" value="Remove"/></td>
     </tr>
 </table>
 

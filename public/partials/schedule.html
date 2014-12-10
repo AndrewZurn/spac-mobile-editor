@@ -1,6 +1,6 @@
 <div class="row class-schedule" ng-controller="ScheduleController as sc">
-<ul class="class-day-ul">
-    <li class="class-day-li" ng-repeat="day in sc.schedule.classSchedule">
+<ul>
+    <li ng-repeat="day in sc.schedule.classSchedule">
         <strong class="strong-day-header">{{day.day}}</strong>
         <table>
             <td></td><td></td>
@@ -8,15 +8,15 @@
             <td><strong>Time</strong></td>
             <td><strong>Instructor</strong></td>
             <td><strong>Room</strong></td>
-            <td><input type="button" class="add-btn" ng-click="sc.addClass(day.day)" name="add row" value="Add Class"></input></td>
+            <td><input type="button" class="add-btn" ng-click="sc.addClass(day.day)" name="add row" value="Add Class"/></td>
             <tr ng-repeat="class in day.classes">
-                <td><input type="button" class="direction-btn" ng-click="sc.moveRow('up', day.day, $index)" name="move up" value="&#9650;"></td>
-                <td><input type="button" class="direction-btn" ng-click="sc.moveRow('down', day.day, $index)" name="move down" value="&#9660;"></td>
+                <td><input type="button" class="direction-btn" ng-click="sc.moveRow('up', day.day, $index)" name="move up" value="&#9650;"/></td>
+                <td><input type="button" class="direction-btn" ng-click="sc.moveRow('down', day.day, $index)" name="move down" value="&#9660;"/></td>
                 <td><input type="text" ng-model="class.name" name="Class Name"/></td>
                 <td><input type="text" ng-model="class.time" name="Class Time"/></td>
                 <td><input type="text" ng-model="class.instructor" name="Class Instructor"/></td>
                 <td><input type="text" ng-model="class.room" name="Class Room"/></td>
-                <td><input type="button" class="delete-btn" ng-click="sc.removeClass(day.day, $index)" name="remove row" value="Remove"></input></td>
+                <td><input type="button" class="delete-btn" ng-click="sc.removeClass(day.day, $index)" name="remove row" value="Remove"/></td>
             </tr>
         </table>
     </li>
