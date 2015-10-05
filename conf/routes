@@ -6,7 +6,6 @@
 
 # Single endpoint for serving AngularJS
 GET         /                                  @controllers.Application.index
-GET         /randomUUID                        @controllers.Application.randomUUID
 
 GET         /schedule/:classType               @controllers.ScheduleController.find(classType: String)
 POST        /schedule/:classType/create        @controllers.ScheduleController.create(classType: String)

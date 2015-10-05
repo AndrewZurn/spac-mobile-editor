@@ -1,16 +1,20 @@
 package controllers
 
-import javax.inject.Singleton
+import javax.inject.{Inject, Singleton}
 
 import models._
 import org.slf4j.{Logger, LoggerFactory}
-import play.api.libs.concurrent.Execution.Implicits._
-import play.api.libs.json.Json
 import play.api.mvc.{Action, Controller}
-import play.modules.reactivemongo.MongoController
+import play.modules.reactivemongo.{ReactiveMongoApi, ReactiveMongoComponents, MongoController}
 import play.modules.reactivemongo.json.BSONFormats._
-import play.modules.reactivemongo.json.collection.JSONCollection
+import play.modules.reactivemongo.json._
+import play.modules.reactivemongo.json.collection._
 import reactivemongo.bson._
+import play.modules.reactivemongo.json._
+import models.Implicits._
+
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import play.api.libs.json._
 
 import scala.concurrent.Future
 
@@ -18,7 +22,8 @@ import scala.concurrent.Future
  * Created by Andrew on 11/28/14.
  */
 @Singleton
-class EventsController extends Controller with MongoController {
+class EventsController @Inject() (val reactiveMongoApi: ReactiveMongoApi)
+  extends Controller with MongoController with ReactiveMongoComponents {
 
   private final val logger: Logger = LoggerFactory.getLogger(classOf[ScheduleController])
 

@@ -8,11 +8,3 @@ import play.modules.reactivemongo.json.BSONFormats._
  */
 case class FitnessClassDay( day: String,
                             classes: List[FitnessClass])
-
-object FitnessClassDay {
-  import play.api.libs.json.Json
-
-  implicit val classDayFormat = Json.format[FitnessClassDay]
-  implicit val classDayReads = Json.reads[FitnessClassDay]
-  implicit val classDayWrites = Json.writes[FitnessClassDay]
-}

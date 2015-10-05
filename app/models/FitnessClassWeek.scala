@@ -11,11 +11,3 @@ import play.modules.reactivemongo.json.BSONFormats._
 case class FitnessClassWeek( _id: Option[BSONObjectID],
                              name:String,
                              classSchedule: List[FitnessClassDay])
-
-object FitnessClassWeek {
-  import play.api.libs.json.Json
-
-  implicit val classWeekFormat = Json.format[FitnessClassWeek]
-  implicit val classWeekReads = Json.reads[FitnessClassWeek]
-  implicit val classWeekWrites = Json.writes[FitnessClassWeek]
-}
