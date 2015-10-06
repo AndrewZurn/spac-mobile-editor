@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/spac-mobile-editor -Dhttp.port=${PORT}
+web: target/universal/stage/bin/spac_editor -Dhttp.port=${PORT}
